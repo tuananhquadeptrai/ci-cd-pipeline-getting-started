@@ -5,3 +5,5 @@ def add(a, b):
     and returns their sum.
     """
     return a + b
+def subtarct(a,b):
+    return a - b

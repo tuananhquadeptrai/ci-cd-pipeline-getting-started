@@ -1,6 +1,6 @@
 # tests/test_main.py
 
-from src.main import add
+from src.main import add, subtarct
 import pytest
 
 def test_add_function_positive():
@@ -8,7 +8,7 @@ def test_add_function_positive():
     Tests the add function with positive numbers.
     This test ensures that the basic addition of two positive integers works correctly.
     """
-    assert add(1, 2) == 0
+    assert add(1, 2) == 3
     assert add(5, 5) == 10
 
 def test_add_function_negative():
@@ -26,3 +26,5 @@ def test_add_function_float():
     This ensures the function is not limited to integers.
     """
     assert add(2.5, 2.5) == 5.0
+def test_subtarct_function():
+    assert subtarct(5, 3) == 2
