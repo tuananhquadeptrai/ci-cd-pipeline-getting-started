@@ -37,3 +37,22 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
+  deploy:
+    # Chạy job này trên phiên bản Ubuntu mới nhất
+    runs-on: ubuntu-latest
+    # Job này phụ thuộc vào một job khác có tên là 'build'
+    needs: build
+    # Chỉ chạy job này khi có push lên nhánh 'main'
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      # Bước 1: Checkout mã nguồn từ repository
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # Bước 2: Triển khai lên môi trường Production
+      - name: Deploy to Production
+        run: |
+          echo "Starting deployment..."
+          # Thay thế dòng echo này bằng các lệnh triển khai thực tế, ví dụ:
+          # ssh user@your-server "cd /path/to/project && git pull && systemctl restart your-service"
